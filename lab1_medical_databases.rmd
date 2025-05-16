@@ -277,7 +277,8 @@ ggplot(raw.data) +
 ```
 
 **10** How could you be misled if you only plotted 1 of these 2 plots of
-attendance by age group?
+attendance by age group?  
+If you only plotted just the amount of no shows alone, you would not get the full context with regards to other age groups. But by plotting the proportion, you can see how no shows are distributed across the different age groups.
 
 The key takeaway from this is that number of individuals \> 90 are very
 few from plot 1 so probably are very small so unlikely to make much of
