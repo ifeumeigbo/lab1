@@ -125,12 +125,14 @@ this row using `filter` i.e., `data <- data %>% filter(CRITERIA)`
 ```{r}
 summary(raw.data$Age)
 ```
-From the above, we can see that a patient(s) has negative age and also age above 110, which are very suspicious. We can drop them.
+
+From the above, we can see that a patient(s) has negative age and also
+age above 110, which are very suspicious. We can drop them.
+
 ```{r}
 raw.data <- raw.data %>% filter(Age >= 0 & Age <= 110)
 summary(raw.data$Age)
 ```
-
 
 ## Exploratory Data Analysis
 
@@ -151,6 +153,17 @@ count(raw.data, Neighbourhood, sort = TRUE)
 ```
 
 **6** What is the maximum number of appointments from the same patient?
+```{r}
+# Count number of appointments for each patient using their PatientID
+appointments_count <- table(raw.data$PatientID)
+
+# Find the maximum count and save it
+max_appointments_base <- max(appointments_count)
+
+# Result
+cat("The maximum number of appointments from the same patient is: ", max_appointments_base, "\n")
+```
+
 
 Let's explore the correlation between variables:
 
