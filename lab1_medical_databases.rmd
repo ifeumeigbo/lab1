@@ -88,7 +88,14 @@ unnecessary.
 **3** Can you provide 3 examples of important contextual information
 that is missing in this data dictionary and dataset that could impact
 your analyses e.g., what type of medical appointment does each
-`AppointmentID` refer to?
+`AppointmentID` refer to?\
+The dataset/dictionary could have been more explicit on some other types
+of medical conditions aside from hypertension and diabetes.\
+The data dictionary could have also been explicit by mentioning that the
+Age variable is the age of the patient at the time the appointment
+booking was made.\
+There could also have been the types or kinds of appointments that were
+booked, as this could have provided more information and context.
 
 ## Data Parsing and Cleaning
 
@@ -114,6 +121,10 @@ but we can't actually say if this is impossible.
 
 **5** Are there any individuals with impossible ages? If so we can drop
 this row using `filter` i.e., `data <- data %>% filter(CRITERIA)`
+
+```{r}
+
+```
 
 ## Exploratory Data Analysis
 
