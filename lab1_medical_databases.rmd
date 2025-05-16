@@ -229,10 +229,18 @@ between variables/features. In this case, we are particularly interested
 in relationships between `NoShow` and any specific variables.
 
 **7** Which parameters most strongly correlate with missing appointments
-(`NoShow`)?
+(`NoShow`)?  
+SMSReceived (0.13), ScheduledDate (-0.16).
 
 **8** Are there any other variables which strongly correlate with one
 another?
+AppointmentID & PatientID (0.65)  
+AppointmentID & AppointmentDate (0.61)  
+AppointmentDate & ScheduledDate (0.61)  
+Age & Hypertension (0.5)  
+Hypertension & Diabetes (0.43)  
+AppointmentID & ScheduledDate (0.37)  
+PatientID & AppointmentDate (0.32)
 
 **9** Do you see any issues with PatientID/AppointmentID being included
 in this plot?
