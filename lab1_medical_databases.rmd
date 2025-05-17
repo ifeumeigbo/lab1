@@ -358,8 +358,14 @@ ggplot(raw.data) +
 
 **14** Create a similar plot using `SocialWelfare`
 
-```{r ,fig.align="center"}
-#Insert plot
+```{r, fig.align="center"}
+ggplot(raw.data) + 
+  geom_bar(aes(x=SocialWelfare, fill=NoShow))+
+  ggtitle("Attendance by Social Welfare")
+
+ggplot(raw.data) + 
+  geom_bar(aes(x=SocialWelfare, fill=NoShow), position='fill')+
+  ggtitle("Proportion Attendance by Social Welfare")
 
 ```
 
