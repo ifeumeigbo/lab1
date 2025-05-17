@@ -340,7 +340,8 @@ Most neighborhoods have similar proportions of no-show but some have
 much higher and lower rates.
 
 **13** Suggest a reason for differences in attendance rates across
-neighbourhoods.
+neighbourhoods.  
+Distance to the appointment hospital could be a reason why a certain neighbourhood has a higher or lower rate compared to other neighbourhoods. People may be more likely to not show up for an appointment if the commute distance is longer.
 
 Now let's explore the relationship between gender and NoShow.
 
