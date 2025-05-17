@@ -310,8 +310,14 @@ From the plot, it looks like people who do not receive SMS are more likely to no
 **12** Create a similar plot which compares the the density of `NoShow`
 across the values of disability
 
-```{r}
-#Insert plot
+```{r,fig.align="center"}
+ggplot(raw.data) + 
+  geom_bar(aes(x=Disability, fill=NoShow), alpha=0.8) + 
+  ggtitle("Attendance by Severity of Disability")
+
+ggplot(raw.data) + 
+  geom_bar(aes(x=Disability, fill=NoShow), position='fill', alpha=0.8) + 
+  ggtitle("Proportion Attendance by Severity of Disability")
 ```
 
 Now let's look at the neighbourhood data as location can correlate
