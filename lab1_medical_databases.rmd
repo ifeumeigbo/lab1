@@ -304,8 +304,13 @@ ggplot(raw.data) +
 
 **11** From this plot does it look like SMS reminders increase or
 decrease the chance of someone not attending an appointment? Why might
-the opposite actually be true (hint: think about biases)?  
-From the plot, it looks like people who do not receive SMS are more likely to not show up for an appointment, although this is not a significance difference, therefore from the plot receiving SMS reminders may slightly decrease the chance of not attending an appointment. However, the data is not well balanced, as there are about twice as many people who did not receive SMS than there are people who received SMS.
+the opposite actually be true (hint: think about biases)?\
+From the plot, it looks like people who do not receive SMS are more
+likely to not show up for an appointment, although this is not a
+significance difference, therefore from the plot receiving SMS reminders
+may slightly decrease the chance of not attending an appointment.
+However, the data is not well balanced, as there are about twice as many
+people who did not receive SMS than there are people who received SMS.
 
 **12** Create a similar plot which compares the the density of `NoShow`
 across the values of disability
@@ -340,8 +345,11 @@ Most neighborhoods have similar proportions of no-show but some have
 much higher and lower rates.
 
 **13** Suggest a reason for differences in attendance rates across
-neighbourhoods.  
-Distance to the appointment hospital could be a reason why a certain neighbourhood has a higher or lower rate compared to other neighbourhoods. People may be more likely to not show up for an appointment if the commute distance is longer.
+neighbourhoods.\
+Distance to the appointment hospital could be a reason why a certain
+neighbourhood has a higher or lower rate compared to other
+neighbourhoods. People may be more likely to not show up for an
+appointment if the commute distance is longer.
 
 Now let's explore the relationship between gender and NoShow.
 
@@ -408,8 +416,13 @@ ggplot(raw.data) +
 ```
 
 **15** Have a look at the values in lag variable, does anything seem
-odd?  
-From the plot, same-day appointments have a very high attendance rate. However, it is not clear whether this is a data collection error or if it is indeed possible to book an appointment for the same day on a given day. Most of the appointments that patients actually showed up to attend seem to have been scheduled on the same day which could represent a bias or it could be from a data collection error.
+odd?\
+From the plot, same-day appointments have a very high attendance rate.
+However, it is not clear whether this is a data collection error or if
+it is indeed possible to book an appointment for the same day on a given
+day. Most of the appointments that patients actually showed up to attend
+seem to have been scheduled on the same day which could represent a bias
+or it could be from a data collection error.
 
 ## Predictive Modeling
 
@@ -420,6 +433,8 @@ and training set, modeling and finally, evaluating our results. For now
 we will subsample but please run on full dataset for final execution.
 
 ```{r}
+library(tidymodels)
+
 ### REMOVE SUBSAMPLING FOR FINAL MODEL
 data.prep <- raw.data %>% select(-AppointmentID, -PatientID) #%>% sample_n(10000)
 
@@ -437,7 +452,8 @@ fit.control <- trainControl(method="cv",number=3,
                            classProbs = TRUE, summaryFunction = twoClassSummary)
 ```
 
-**16** Based on the EDA, how well do you think this is going to work?
+**16** Based on the EDA, how well do you think this is going to work?  
+I think it might work a little bit well, but considering that the data may have some issues (such as the irregularity in the lag) and the imbalance in the data, the result or efficiency in the model could be affected.
 
 Now we can train our XGBoost model
 
