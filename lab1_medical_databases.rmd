@@ -153,6 +153,7 @@ count(raw.data, Neighbourhood, sort = TRUE)
 ```
 
 **6** What is the maximum number of appointments from the same patient?
+
 ```{r}
 # Count number of appointments for each patient using their PatientID
 appointments_count <- table(raw.data$PatientID)
@@ -163,7 +164,6 @@ max_appointments_base <- max(appointments_count)
 # Result
 cat("The maximum number of appointments from the same patient is: ", max_appointments_base, "\n")
 ```
-
 
 Let's explore the correlation between variables:
 
@@ -229,22 +229,23 @@ between variables/features. In this case, we are particularly interested
 in relationships between `NoShow` and any specific variables.
 
 **7** Which parameters most strongly correlate with missing appointments
-(`NoShow`)?  
+(`NoShow`)?\
 SMSReceived (0.13), ScheduledDate (-0.16).
 
 **8** Are there any other variables which strongly correlate with one
-another?
-AppointmentID & PatientID (0.65)  
-AppointmentID & AppointmentDate (0.61)  
-AppointmentDate & ScheduledDate (0.61)  
-Age & Hypertension (0.5)  
-Hypertension & Diabetes (0.43)  
-AppointmentID & ScheduledDate (0.37)  
+another? AppointmentID & PatientID (0.65)\
+AppointmentID & AppointmentDate (0.61)\
+AppointmentDate & ScheduledDate (0.61)\
+Age & Hypertension (0.5)\
+Hypertension & Diabetes (0.43)\
+AppointmentID & ScheduledDate (0.37)\
 PatientID & AppointmentDate (0.32)
 
 **9** Do you see any issues with PatientID/AppointmentID being included
-in this plot?  
-Yes I see an issue with including PatientID/AppointmentID in the correlation plot because they are not providing any actionable information here.
+in this plot?\
+Yes I see an issue with including PatientID/AppointmentID in the
+correlation plot because they are not providing any actionable
+information here.
 
 Let's look at some individual variables and their relationship with
 `NoShow`.
@@ -277,8 +278,11 @@ ggplot(raw.data) +
 ```
 
 **10** How could you be misled if you only plotted 1 of these 2 plots of
-attendance by age group?  
-If you only plotted just the amount of no shows alone, you would not get the full context with regards to other age groups. But by plotting the proportion, you can see how no shows are distributed across the different age groups.
+attendance by age group?\
+If you only plotted just the amount of no-shows alone, you would not get
+the full context with regards to other age groups. But by plotting the
+proportion, you can see how no-shows are distributed across the
+different age groups.
 
 The key takeaway from this is that number of individuals \> 90 are very
 few from plot 1 so probably are very small so unlikely to make much of
@@ -300,7 +304,8 @@ ggplot(raw.data) +
 
 **11** From this plot does it look like SMS reminders increase or
 decrease the chance of someone not attending an appointment? Why might
-the opposite actually be true (hint: think about biases)?
+the opposite actually be true (hint: think about biases)?  
+From the plot, it looks like people who do not receive SMS are more likely to not show up for an appointment, although this is not a significance difference, therefore from the plot receiving SMS reminders may slightly decrease the chance of not attending an appointment. However, the data is not well balanced, as there are about twice as many people who did not receive SMS than there are people who received SMS.
 
 **12** Create a similar plot which compares the the density of `NoShow`
 across the values of disability
