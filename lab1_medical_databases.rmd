@@ -510,7 +510,32 @@ ggplot(results, aes(x=Feature, y=Importance,fill=Importance))+
 ```
 
 **17** Using the [caret package](https://topepo.github.io/caret/) fit
-and evaluate 1 other ML model on this data.
+and evaluate 1 other ML model on this data.  
+```{r}
+library(caret)
+```
+
+```{r}
+set.seed(42)
+
+logistic_model <- train(
+  NoShow ~ .,
+  data = train,
+  method = "glm",
+  family = "binomial",
+  trControl = fit.control,
+  metric = "ROC"
+)
+
+# Print the model summary
+print(logistic_model)
+```
+```{r}
+predictions <- predict(logistic_model, newdata = test)
+predicted_probabilities <- predict(logistic_model, newdata = test, type = "prob")
+
+confusionMatrix(predictions, test$NoShow)
+```
 
 **18** Based on everything, do you think we can trust analyses based on
 this dataset? Explain your reasoning.  
