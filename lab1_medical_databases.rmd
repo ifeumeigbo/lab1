@@ -453,7 +453,7 @@ fit.control <- trainControl(method="cv",number=3,
 ```
 
 **16** Based on the EDA, how well do you think this is going to work?  
-I think it might work a little bit well, but considering that the data may have some issues (such as the irregularity in the lag) and the imbalance in the data, the result or efficiency in the model could be affected.
+I think it might somewhat work a little bit well, but considering that the data may have some issues (such as the irregularity in the lag) and the imbalance in the data, the result or efficiency in the model could be affected. However, through testing (AUC) and other metrics, we will know for sure how well the model works.
 
 Now we can train our XGBoost model
 
@@ -513,7 +513,8 @@ ggplot(results, aes(x=Feature, y=Importance,fill=Importance))+
 and evaluate 1 other ML model on this data.
 
 **18** Based on everything, do you think we can trust analyses based on
-this dataset? Explain your reasoning.
+this dataset? Explain your reasoning.  
+I think I would rather err on the side of caution by not truly trusting the analyses based on this dataset. This has nothing to do with our analysis methods and tools (libraries, packages, etc) but because of the quality of the data itself. The dataset is quite unbalanced and not properly proportioned which was demonstrated from features such as the SMSReceived, along with the anomalies in variables such as the 'Lag'. These could cause biases. There are also some missing information that could have provided more context to make better predictions such as the weather, type of appointment, or even the doctor's seniority/experience.
 
 ## Credits
 
