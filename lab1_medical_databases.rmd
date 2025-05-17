@@ -408,7 +408,8 @@ ggplot(raw.data) +
 ```
 
 **15** Have a look at the values in lag variable, does anything seem
-odd?
+odd?  
+From the plot, same-day appointments have a very high attendance rate. However, it is not clear whether this is a data collection error or if it is indeed possible to book an appointment for the same day on a given day. Most of the appointments that patients actually showed up to attend seem to have been scheduled on the same day which could represent a bias or it could be from a data collection error.
 
 ## Predictive Modeling
 
